@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Amazon Book Market Scanner — Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="dot"></div>
+        <h1>Book Market Scanner</h1>
+      </div>
+      <div class="controls">
+        <select id="nicheSelect"></select>
+        <button id="exportBtn" class="ghost-btn">Export Report</button>
+        <button id="deleteBtn" class="ghost-btn danger">Delete Niche</button>
+      </div>
+    </header>
+
+    <div id="emptyState" class="empty-state hidden">
+      <p>No niches scanned yet. Open the extension popup on an Amazon books search or category page, label a niche, and click "Scan This Page".</p>
+    </div>
+
+    <div id="content" class="hidden">
+
+      <section id="snapshot" class="panel snapshot-panel"></section>
+
+      <section id="trend" class="panel"></section>
+
+      <section class="panel">
+        <div class="panel-title">Ranked Books <span id="rankedCount" class="muted-inline"></span></div>
+        <div class="table-wrap">
+          <table id="booksTable">
+            <thead>
+              <tr>
+                <th data-sort="title">Title</th>
+                <th data-sort="author">Author</th>
+                <th data-sort="rating">Rating</th>
+                <th data-sort="reviewCount">Reviews</th>
+                <th data-sort="price">Price</th>
+                <th data-sort="format">Format</th>
+                <th data-sort="bsrOverall">BSR</th>
+                <th data-sort="pageRank">New-release rank</th>
+                <th data-sort="source">Source</th>
+                <th data-sort="badge">Badge</th>
+                <th data-sort="opportunityScore">Opportunity</th>
+              </tr>
+            </thead>
+            <tbody id="booksTbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="two-col">
+        <section class="panel">
+          <div class="panel-title">Title Pattern Analysis</div>
+          <div id="patternsPanel"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title">Recurring Topics & Keywords</div>
+          <div id="keywordsPanel"></div>
+        </section>
+      </div>
+
+      <div class="two-col">
+        <section class="panel">
+          <div class="panel-title">Competition Analysis</div>
+          <div id="competitionPanel"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title">Gap Finder</div>
+          <div id="gapsPanel"></div>
+          <p class="disclaimer">Based only on this scanned sample — not real Amazon search-demand data.</p>
+        </section>
+      </div>
+
+      <section class="panel">
+        <div class="panel-title-row">
+          <div class="panel-title">Commercial Opportunity — Original Title Concepts</div>
+          <button id="generateIdeas" class="ghost-btn">Generate Concepts</button>
+        </div>
+        <p class="disclaimer">Original concepts based on your scanned titles, recurring themes, BSR and engagement signals. They indicate an opportunity in this sample, not a promise of profitability or demand.</p>
+        <div id="ideasPanel"></div>
+      </section>
+
+    </div>
+  </div>
+  <script src="common.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
