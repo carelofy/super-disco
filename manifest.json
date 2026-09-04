@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Amazon Book Market Scanner",
+  "version": "1.2.0",
+  "description": "Scans Amazon book search, category, and product pages you visit, then analyzes niche competition, title patterns, and opportunity gaps from the live data.",
+  "permissions": ["storage", "activeTab", "scripting", "downloads"],
+  "host_permissions": ["https://amazon.com/*", "https://*.amazon.com/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://amazon.com/*", "https://*.amazon.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
