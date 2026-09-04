@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Amazon Book Scanner</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="scanner">
+    <header>
+      <div class="dot"></div>
+      <h1>Book Market Scanner</h1>
+    </header>
+
+    <div class="field">
+      <label for="nicheInput">Active niche / search label</label>
+      <input id="nicheInput" type="text" placeholder="e.g. Gut Health" />
+    </div>
+
+    <div id="pageStatus" class="page-status">Checking current page…</div>
+
+    <button id="scanBtn" class="primary-btn" disabled>Scan This Page</button>
+
+    <div id="scanResult" class="scan-result hidden"></div>
+
+    <div class="niche-summary">
+      <div class="row">
+        <span class="label">Books captured</span>
+        <span id="bookCount" class="value">0</span>
+      </div>
+      <div class="row">
+        <span class="label">Last scan</span>
+        <span id="lastScan" class="value">—</span>
+      </div>
+    </div>
+
+    <button id="openDashboard" class="secondary-btn">Open Dashboard</button>
+
+    <p class="hint">
+      Browse Amazon search results, category/bestseller pages, or individual
+      product pages, then click "Scan This Page" on each. Visit product pages
+      to capture Best Sellers Rank, publisher, and publication date.
+    </p>
+  </div>
+  <script src="common.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
